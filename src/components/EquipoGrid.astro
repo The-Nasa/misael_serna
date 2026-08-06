@@ -1,0 +1,51 @@
+---
+// EquipoGrid.astro
+const regidores = [
+  { nombre: "Herlin Grandez Panduro", cargo: "Regidor 1", foto: "", numero: "1" },
+  { nombre: "Jesusa Paty Ramos Yucra", cargo: "Regidora 2", foto: "", numero: "2" },
+  { nombre: "Abudenio Durand Lazaro", cargo: "Regidor 3", foto: "", numero: "3" },
+  { nombre: "María Edith Saavedra de Catpo", cargo: "Regidora 4", foto: "", numero: "4" },
+  { nombre: "Franchéscoly Rimachi Leguia", cargo: "Regidor 5", foto: "", numero: "5" },
+  { nombre: "Jessenia Alely Robledo Merino", cargo: "Regidora 6", foto: "", numero: "6" }
+];
+---
+<section class="py-16 bg-transparent">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-brand-700 mb-8 border-b border-brand-200 pb-2 flex items-center justify-between">
+        <span>Candidatos a Regidores</span>
+        <span class="text-sm font-normal text-accent-600 bg-accent-50 px-3 py-1 rounded-full">Juventud, Capacidad y Experiencia</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {regidores.map(miembro => (
+          <div class="bg-white rounded-3xl shadow-sm border border-brand-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+            <div class="aspect-square bg-gradient-to-br from-brand-50 to-white relative flex items-end justify-center p-4">
+              <!-- Placeholder de ícono en caso de no tener foto cargada aún -->
+              <div class="absolute inset-0 flex items-center justify-center text-brand-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              
+              {miembro.foto && (
+                <img src={miembro.foto} alt={miembro.nombre} class="w-full h-full object-cover relative z-10 opacity-0 transition-opacity duration-300" onload="this.classList.remove('opacity-0')" />
+              )}
+              
+              <div class="absolute top-4 right-4 z-20 bg-accent-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl shadow-md border-2 border-white">
+                {miembro.numero}
+              </div>
+            </div>
+            
+            <div class="p-6 text-center border-t border-brand-100 relative">
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+                {miembro.cargo}
+              </div>
+              <h3 class="font-bold text-brand-700 text-xl mt-2 leading-tight uppercase">{miembro.nombre}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

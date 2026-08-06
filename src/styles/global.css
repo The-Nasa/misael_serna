@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+
+  /* AZUL OFICIAL SOMOS PERÚ */
+  --color-brand-50: #f5f5f5;
+  /* Fondo blanco-gris (0% a 10% de negro según el manual) */
+  --color-brand-200: #bfdbfe;
+  /* Bordes o detalles suaves */
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #004987;
+  /* AZUL PRINCIPAL (Textos destacados, menú, botones primarios) */
+  --color-brand-700: #003366;
+  /* Azul oscuro (Hover de botones) */
+
+  /* ROJO OFICIAL SOMOS PERÚ */
+  --color-accent-50: #fff1f2;
+  --color-accent-500: #f43f5e;
+  --color-accent-600: #e62e39;
+  /* ROJO PRINCIPAL (Para botones de acción como 'Únete' o alertas) */
+  --color-accent-700: #be123c;
+  /* Rojo oscuro (Hover) */
+
+  /* TIPOGRAFÍA GLOBAL (Avenir como fuente base) */
+  --font-sans: "Avenir", "Avenir Next", "Nunito Sans", system-ui, sans-serif;
+}

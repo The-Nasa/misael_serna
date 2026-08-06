@@ -1,0 +1,96 @@
+﻿---
+const propuestas = [
+  {
+    icono: "🎓",
+    titulo: "Educación",
+    descripcion:
+      "Crearemos espacios de formación académica gratuitos para que los estudiantes de 3ro, 4to y 5to de secundaria se preparen en Academias Preuniversitarias, logrando que más jóvenes ingresen a Universidades e Institutos del País.",
+  },
+  {
+    icono: "⚽",
+    titulo: "Deporte",
+    descripcion:
+      "Nos comprometemos a realizar el sistema de drenaje y la construcción de una nueva tribuna del Estadio Municipal.",
+  },
+  {
+    icono: "🛣️",
+    titulo: "Vías Rurales",
+    descripcion:
+      "La creación y mejoramiento de las vías de comunicación rurales es una prioridad para todas nuestras comunidades y el apoyo a los agricultores, lo haremos realidad juntos.",
+  },
+];
+---
+
+<section id="participacion" class="w-full py-20 bg-transparent">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center mb-14 max-w-3xl mx-auto">
+      <p class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">
+        Trayectoria
+      </p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+        Participación Política
+      </h2>
+    </div>
+
+    <!-- Línea de tiempo -->
+    <div class="grid md:grid-cols-3 gap-6 mb-16">
+      <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <span class="text-brand-600 font-bold text-sm">2015 — 2018</span>
+        <p class="mt-2 text-gray-700">
+          Asumí el cargo de Regidor de la Municipalidad Distrital de José Crespo y Castillo.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <span class="text-brand-600 font-bold text-sm">2022</span>
+        <p class="mt-2 text-gray-700">
+          Participé en las Elecciones Municipales con el Movimiento Político Cambiemos x Hco,
+          como candidato a Alcalde, obteniendo 2158 votos con una campaña austera y propuestas
+          claras enfocadas en las necesidades del distrito.
+        </p>
+      </div>
+
+      <div class="bg-brand-600 rounded-2xl p-6 text-white shadow-lg shadow-brand-200">
+        <span class="font-bold text-sm">2026 — 2027-2030</span>
+        <p class="mt-2">
+          Participo como Candidato a Alcalde del Distrito de José Crespo y Castillo con el
+          Partido Democrático Somos Perú, con el respaldo de jóvenes, profesionales,
+          organizaciones sociales y la población aucayaquina.
+        </p>
+      </div>
+    </div>
+
+    <!-- Visión -->
+    <div class="bg-brand-50 rounded-3xl p-8 md:p-12 mb-16">
+      <p class="text-gray-800 text-lg leading-relaxed text-center max-w-4xl mx-auto">
+        Sueño con la futura provincia del Alto Huallaga, con un distrito donde la salud,
+        la educación y la agricultura sean el motor de desarrollo de nuestros pueblos;
+        lucharemos a favor de la juventud, por los niños, por los adultos mayores, por
+        las personas con discapacidad, por las mujeres y por la familia para que tengan
+        una plena atención y espacios seguros, para que sigan contribuyendo por un mejor
+        Aucayacu.
+      </p>
+    </div>
+
+    <!-- Propuestas -->
+    <div class="text-center mb-10">
+      <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900">
+        Nuestras Propuestas
+      </h3>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {propuestas.map((propuesta) => (
+        <div class="text-center p-6 rounded-2xl border border-gray-100 hover:border-brand-200 transition-colors duration-200">
+          <div class="text-4xl mb-4">{propuesta.icono}</div>
+          <h4 class="font-bold text-gray-900 text-lg mb-3">{propuesta.titulo}</h4>
+          <p class="text-gray-600 text-sm leading-relaxed">{propuesta.descripcion}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+

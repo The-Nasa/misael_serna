@@ -1,0 +1,85 @@
+---
+// PropuestasList.astro
+const ejes = [
+  {
+    titulo: "Dimensión Social",
+    icono: "👥",
+    resumen: "Salud, educación, deporte y bienestar para las familias vulnerables de Aucayacu.",
+    detalle: `
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Gestionaremos la construcción del Hospital de Nivel II y un Consultorio Médico de atención prioritaria.</li>
+        <li>Mejoraremos la infraestructura educativa, el CETPRO y el Instituto Pedagógico.</li>
+        <li>Gestionaremos el gran proyecto de agua potable y alcantarillado.</li>
+        <li>Crearemos la Academia Preuniversitaria y escuelas deportivas y culturales.</li>
+        <li>Mejoraremos el estadio municipal y fortaleceremos las competencias de nuestros docentes.</li>
+        <li>Servicio de Desarrollo Productivo para promover emprendimientos de personas vulnerables.</li>
+      </ul>
+    `
+  },
+  {
+    titulo: "Dimensión Económica",
+    icono: "📈",
+    resumen: "Impulso a la agricultura, turismo, comercio local y conectividad vial.",
+    detalle: `
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Adquiriremos maquinaria pesada para mantener en buen estado las carreteras y caminos vecinales.</li>
+        <li>Asistencia técnica para cultivos (palma aceitera, cacao, café, arroz) y piscicultura.</li>
+        <li>Mejoraremos el Mercado Central, el Mercado San Juan y gestionaremos el Terminal Terrestre.</li>
+        <li>Construiremos y mejoraremos pistas, veredas, puentes y pontones.</li>
+        <li>Formalización y capacitación para operadores turísticos.</li>
+      </ul>
+    `
+  },
+  {
+    titulo: "Dimensión Ambiental",
+    icono: "🌱",
+    resumen: "Protección de nuestros bosques, limpieza pública y recuperación de áreas verdes.",
+    detalle: `
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Implementaremos el Plan Distrital de Reforestación y protegeremos la biodiversidad.</li>
+        <li>Adquiriremos terrenos para un moderno relleno sanitario y un nuevo cementerio municipal.</li>
+        <li>Reubicaremos el camal municipal.</li>
+        <li>Recuperaremos parques, jardines y espacios públicos para nuestras familias.</li>
+      </ul>
+    `
+  },
+  {
+    titulo: "Dimensión Institucional",
+    icono: "🏛️",
+    resumen: "Seguridad ciudadana, modernización, prevención de desastres y ordenamiento urbano.",
+    detalle: `
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Instalaremos cámaras de videovigilancia y fortaleceremos las JUVESC y Rondas Vecinales.</li>
+        <li>Elaboraremos el Plan de Desarrollo Urbano e impulsaremos el saneamiento físico-legal (SUNARP).</li>
+        <li>Gestionaremos proyectos de defensa ribereña y drenaje pluvial frente a inundaciones.</li>
+        <li>Programa de canje de deudas tributarias mediante bienes y servicios.</li>
+        <li>Impulsaremos una municipalidad transparente, moderna y con trámites 100% digitales.</li>
+      </ul>
+    `
+  }
+];
+---
+<section class="py-16 bg-transparent">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-8">
+      {ejes.map((eje) => (
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-brand-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-start gap-4 mb-5 border-b border-gray-100 pb-5">
+            <div class="text-5xl shrink-0">{eje.icono}</div>
+            <div>
+              <h3 class="text-xl font-extrabold text-brand-700 mb-1">{eje.titulo}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed font-medium">{eje.resumen}</p>
+            </div>
+          </div>
+          <div class="text-gray-700 text-sm leading-relaxed">
+            <div set:html={eje.detalle} />
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-12 max-w-4xl mx-auto text-center p-8 bg-brand-600 rounded-3xl text-white shadow-lg">
+      <p class="text-lg md:text-xl font-semibold italic">"Cuando las autoridades y los funcionarios se ponen a trabajar a favor del pueblo, el poco dinero que llega, alcanza para todos"</p>
+    </div>
+  </div>
+</section>
