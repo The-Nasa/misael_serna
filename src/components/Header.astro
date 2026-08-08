@@ -304,31 +304,33 @@ const navLinks = [
 </style>
 
 <script>
-  const header = document.getElementById("site-header");
-  const toggle = document.getElementById("menu-toggle");
-  const mobileNav = document.getElementById("nav-mobile");
+  document.addEventListener('astro:page-load', () => {
+    const header = document.getElementById("site-header");
+    const toggle = document.getElementById("menu-toggle");
+    const mobileNav = document.getElementById("nav-mobile");
 
-  // Abrir / cerrar el menú mobile
-  toggle?.addEventListener("click", () => {
-    const isOpen = mobileNav?.dataset.open === "true";
-    mobileNav?.setAttribute("data-open", String(!isOpen));
-    toggle.setAttribute("aria-expanded", String(!isOpen));
-    toggle.setAttribute("aria-label", !isOpen ? "Cerrar menú" : "Abrir menú");
-  });
-
-  // Cerrar menú mobile al hacer click en cualquier link (H1 Nielsen)
-  mobileNav?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileNav.setAttribute("data-open", "false");
-      toggle?.setAttribute("aria-expanded", "false");
-      toggle?.setAttribute("aria-label", "Abrir menú");
+    // Abrir / cerrar el menú mobile
+    toggle?.addEventListener("click", () => {
+      const isOpen = mobileNav?.dataset.open === "true";
+      mobileNav?.setAttribute("data-open", String(!isOpen));
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      toggle.setAttribute("aria-label", !isOpen ? "Cerrar menú" : "Abrir menú");
     });
-  });
 
-  // Sombra al hacer scroll
-  const onScroll = () => {
-    header?.setAttribute("data-scrolled", window.scrollY > 8 ? "true" : "false");
-  };
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+    // Cerrar menú mobile al hacer click en cualquier link (H1 Nielsen)
+    mobileNav?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileNav.setAttribute("data-open", "false");
+        toggle?.setAttribute("aria-expanded", "false");
+        toggle?.setAttribute("aria-label", "Abrir menú");
+      });
+    });
+
+    // Sombra al hacer scroll
+    const onScroll = () => {
+      header?.setAttribute("data-scrolled", window.scrollY > 8 ? "true" : "false");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  });
 </script>
