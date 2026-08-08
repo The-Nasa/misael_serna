@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import PropuestasList from '../components/PropuestasList.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Propuestas - Misael Serna Villar">
+  <Header />
+  
+  <main id="main-content" class="w-full bg-gradient-to-b from-brand-50 to-transparent min-h-screen">
+    <div class="max-w-4xl mx-auto px-6 text-center pt-10">
+      <h1 class="text-5xl font-extrabold text-gray-900 mb-4 uppercase">Nuestros Compromisos</h1>
+      <p class="text-xl text-gray-600 font-medium mb-12">Soluciones reales, medibles y enfocadas en mejorar la calidad de vida de todos los aucayaquinos.</p>
+    </div>
+    <PropuestasList />
+    
+    <!--
+    <div class="max-w-4xl mx-auto px-6 mb-12">
+      <blockquote class="bg-white border-l-8 border-accent-500 p-8 rounded-r-2xl shadow-sm text-left">
+        <p class="text-2xl font-bold text-gray-800 italic leading-relaxed mb-4">
+          "Cuando las autoridades y los funcionarios se ponen a trabajar a favor del pueblo, el poco dinero que llega, alcanza para todos."
+        </p>
+      </blockquote>
+    </div> -->
+
+    <div class="max-w-5xl mx-auto px-6 pb-24">
+      <img 
+        src="/images/regidores/junto-hagamos-historia.png" 
+        alt="Juntos Hagamos Historia 2026" 
+        class="w-full h-auto rounded-3xl shadow-2xl object-cover hover:shadow-brand-500/20 transition-shadow duration-500" 
+      />
+    </div>
+  </main>
+  <Footer />
+</Layout>

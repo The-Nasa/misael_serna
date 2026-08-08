@@ -1,85 +1,42 @@
 ---
-// PropuestasList.astro
-const ejes = [
-  {
-    titulo: "Dimensión Social",
-    icono: "👥",
-    resumen: "Salud, educación, deporte y bienestar para las familias vulnerables de Aucayacu.",
-    detalle: `
-      <ul class="list-disc pl-5 space-y-2">
-        <li>Gestionaremos la construcción del Hospital de Nivel II y un Consultorio Médico de atención prioritaria.</li>
-        <li>Mejoraremos la infraestructura educativa, el CETPRO y el Instituto Pedagógico.</li>
-        <li>Gestionaremos el gran proyecto de agua potable y alcantarillado.</li>
-        <li>Crearemos la Academia Preuniversitaria y escuelas deportivas y culturales.</li>
-        <li>Mejoraremos el estadio municipal y fortaleceremos las competencias de nuestros docentes.</li>
-        <li>Servicio de Desarrollo Productivo para promover emprendimientos de personas vulnerables.</li>
-      </ul>
-    `
-  },
-  {
-    titulo: "Dimensión Económica",
-    icono: "📈",
-    resumen: "Impulso a la agricultura, turismo, comercio local y conectividad vial.",
-    detalle: `
-      <ul class="list-disc pl-5 space-y-2">
-        <li>Adquiriremos maquinaria pesada para mantener en buen estado las carreteras y caminos vecinales.</li>
-        <li>Asistencia técnica para cultivos (palma aceitera, cacao, café, arroz) y piscicultura.</li>
-        <li>Mejoraremos el Mercado Central, el Mercado San Juan y gestionaremos el Terminal Terrestre.</li>
-        <li>Construiremos y mejoraremos pistas, veredas, puentes y pontones.</li>
-        <li>Formalización y capacitación para operadores turísticos.</li>
-      </ul>
-    `
-  },
-  {
-    titulo: "Dimensión Ambiental",
-    icono: "🌱",
-    resumen: "Protección de nuestros bosques, limpieza pública y recuperación de áreas verdes.",
-    detalle: `
-      <ul class="list-disc pl-5 space-y-2">
-        <li>Implementaremos el Plan Distrital de Reforestación y protegeremos la biodiversidad.</li>
-        <li>Adquiriremos terrenos para un moderno relleno sanitario y un nuevo cementerio municipal.</li>
-        <li>Reubicaremos el camal municipal.</li>
-        <li>Recuperaremos parques, jardines y espacios públicos para nuestras familias.</li>
-      </ul>
-    `
-  },
-  {
-    titulo: "Dimensión Institucional",
-    icono: "🏛️",
-    resumen: "Seguridad ciudadana, modernización, prevención de desastres y ordenamiento urbano.",
-    detalle: `
-      <ul class="list-disc pl-5 space-y-2">
-        <li>Instalaremos cámaras de videovigilancia y fortaleceremos las JUVESC y Rondas Vecinales.</li>
-        <li>Elaboraremos el Plan de Desarrollo Urbano e impulsaremos el saneamiento físico-legal (SUNARP).</li>
-        <li>Gestionaremos proyectos de defensa ribereña y drenaje pluvial frente a inundaciones.</li>
-        <li>Programa de canje de deudas tributarias mediante bienes y servicios.</li>
-        <li>Impulsaremos una municipalidad transparente, moderna y con trámites 100% digitales.</li>
-      </ul>
-    `
-  }
-];
+import { ejes } from '../data/propuestas';
 ---
-<section class="py-16 bg-transparent">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-8">
-      {ejes.map((eje) => (
-        <div class="bg-white rounded-3xl p-8 shadow-sm border border-brand-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-          <div class="flex items-start gap-4 mb-5 border-b border-gray-100 pb-5">
-            <div class="text-5xl shrink-0">{eje.icono}</div>
-            <div>
-              <h3 class="text-xl font-extrabold text-brand-700 mb-1">{eje.titulo}</h3>
-              <p class="text-gray-500 text-sm leading-relaxed font-medium">{eje.resumen}</p>
-            </div>
-          </div>
-          <div class="text-gray-700 text-sm leading-relaxed">
-            <div set:html={eje.detalle} />
-          </div>
+
+<section class="pb-20 pt-4">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-2 gap-8">
+            {ejes.map((eje) => (
+                <div class="bg-white rounded-3xl p-8 border border-brand-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-5 mb-6 border-b border-brand-50 pb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-brand-50 flex items-center justify-center shadow-sm shrink-0" set:html={eje.icono} />
+                        <h3 class="text-2xl font-extrabold text-brand-700">
+                            {eje.titulo}
+                        </h3>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:flex-wrap gap-y-4 gap-x-4">
+                        {eje.propuestas.map((item) => (
+                            <div class="flex gap-3 items-start group w-full sm:w-[calc(50%-0.5rem)]">
+                                <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center font-bold shrink-0 mt-0.5 group-hover:bg-accent-600 group-hover:text-white transition-colors duration-300">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <p class="text-gray-700 text-sm leading-relaxed font-medium">
+                                    {item}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
         </div>
-      ))}
+
+        <div class="mt-20 rounded-3xl bg-brand-600 text-white p-12 text-center shadow-lg relative overflow-hidden">
+            <div class="absolute inset-0 bg-brand-700 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+            <p class="text-xl max-w-3xl mx-auto leading-relaxed italic relative z-10 font-medium">
+                "Cuando las autoridades y los funcionarios trabajan a favor del pueblo, el poco dinero que llega alcanza para todos."
+            </p>
+        </div>
+
     </div>
-    
-    <div class="mt-12 max-w-4xl mx-auto text-center p-8 bg-brand-600 rounded-3xl text-white shadow-lg">
-      <p class="text-lg md:text-xl font-semibold italic">"Cuando las autoridades y los funcionarios se ponen a trabajar a favor del pueblo, el poco dinero que llega, alcanza para todos"</p>
-    </div>
-  </div>
 </section>

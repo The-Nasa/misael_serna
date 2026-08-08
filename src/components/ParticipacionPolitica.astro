@@ -1,24 +1,5 @@
 ﻿---
-const propuestas = [
-  {
-    icono: "🎓",
-    titulo: "Educación",
-    descripcion:
-      "Crearemos espacios de formación académica gratuitos para que los estudiantes de 3ro, 4to y 5to de secundaria se preparen en Academias Preuniversitarias, logrando que más jóvenes ingresen a Universidades e Institutos del País.",
-  },
-  {
-    icono: "⚽",
-    titulo: "Deporte",
-    descripcion:
-      "Nos comprometemos a realizar el sistema de drenaje y la construcción de una nueva tribuna del Estadio Municipal.",
-  },
-  {
-    icono: "🛣️",
-    titulo: "Vías Rurales",
-    descripcion:
-      "La creación y mejoramiento de las vías de comunicación rurales es una prioridad para todas nuestras comunidades y el apoyo a los agricultores, lo haremos realidad juntos.",
-  },
-];
+
 ---
 
 <section id="participacion" class="w-full py-20 bg-transparent">
@@ -52,7 +33,7 @@ const propuestas = [
       </div>
 
       <div class="bg-brand-600 rounded-2xl p-6 text-white shadow-lg shadow-brand-200">
-        <span class="font-bold text-sm">2026 — 2027-2030</span>
+        <span class="font-bold text-sm">ELECCIONES MUNICIPALES 2026</span>
         <p class="mt-2">
           Participo como Candidato a Alcalde del Distrito de José Crespo y Castillo con el
           Partido Democrático Somos Perú, con el respaldo de jóvenes, profesionales,
@@ -73,24 +54,5 @@ const propuestas = [
       </p>
     </div>
 
-    <!-- Propuestas -->
-    <div class="text-center mb-10">
-      <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900">
-        Nuestras Propuestas
-      </h3>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      {propuestas.map((propuesta) => (
-        <div class="text-center p-6 rounded-2xl border border-gray-100 hover:border-brand-200 transition-colors duration-200">
-          <div class="text-4xl mb-4">{propuesta.icono}</div>
-          <h4 class="font-bold text-gray-900 text-lg mb-3">{propuesta.titulo}</h4>
-          <p class="text-gray-600 text-sm leading-relaxed">{propuesta.descripcion}</p>
-        </div>
-      ))}
-    </div>
-
   </div>
 </section>
-
-

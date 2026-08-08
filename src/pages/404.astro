@@ -1,0 +1,59 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Página no encontrada — Misael Serna Villar"
+  description="La página que buscas no existe. Regresa al sitio de campaña de Misael Serna Villar."
+>
+  <Header />
+
+  <main id="main-content">
+    <section class="min-h-[75vh] flex items-center justify-center py-20 bg-gradient-to-b from-brand-50 to-transparent">
+      <div class="max-w-2xl mx-auto px-6 text-center">
+
+        <!-- Número 404 decorativo -->
+        <p class="text-[8rem] md:text-[10rem] font-extrabold leading-none text-brand-200 select-none" aria-hidden="true">
+          404
+        </p>
+
+        <!-- Mensaje principal -->
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 -mt-4">
+          Página no encontrada
+        </h1>
+        <p class="text-gray-600 text-lg leading-relaxed mb-10 max-w-md mx-auto">
+          La página que buscas no existe o fue movida. Desde aquí puedes regresar al sitio de campaña.
+        </p>
+
+        <!-- Acciones -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/"
+            class="px-8 py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded-full transition-colors duration-200 shadow-lg"
+          >
+            ← Volver al inicio
+          </a>
+          <a
+            href="/propuestas"
+            class="px-8 py-3 border-2 border-brand-600 text-brand-700 hover:bg-brand-50 font-semibold rounded-full transition-colors duration-200"
+          >
+            Ver propuestas
+          </a>
+        </div>
+
+        <!-- Divider -->
+        <div class="mt-16 pt-8 border-t border-brand-200">
+          <p class="text-sm text-gray-500">
+            ¿Buscabas algo en específico?
+            <a href="/#contacto" class="text-brand-600 font-semibold hover:underline ml-1">Contáctanos</a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

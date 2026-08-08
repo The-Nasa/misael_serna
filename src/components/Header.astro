@@ -1,7 +1,7 @@
-﻿---
+---
 // Header.astro
-// Header de campaña — nombre, cargo, nav, insignia de número de lista y CTA.
-// Ajusta los props según venga la data real (o cárgalos desde src/data/candidato.js).
+// Header de campana con navegacion sticky, menu mobile y CTA.
+import { candidato } from '../data/candidato';
 
 export interface Props {
   nombre?: string;
@@ -12,19 +12,28 @@ export interface Props {
 }
 
 const {
-  nombre = "Misael Serna",
-  cargo = "Candidato a Alcalde",
-  numeroLista = "7", // reemplazar por el número real de la lista
-  ctaTexto = "Únete",
-  ctaHref = "#contacto",
+  nombre = candidato.nombreCorto,
+  cargo = candidato.cargo,
+  numeroLista = candidato.numeroLista,
+  ctaTexto = "Unete",
+  ctaHref = "/#contacto",
 } = Astro.props;
 
+const currentPath = Astro.url.pathname;
+
+// Detecta si un link es el activo (ignora el hash)
+const isActive = (href: string): boolean => {
+  const path = href.split('#')[0];
+  if (path === '' || path === '/') return currentPath === '/';
+  return currentPath === path || currentPath.startsWith(path + '/');
+};
+
 const navLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Propuestas", href: "#propuestas" },
-  { label: "Equipo", href: "#equipo" },
-  { label: "Sobre mí", href: "#sobre-mi" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Inicio", href: "/#inicio" },
+  { label: "Propuestas", href: "/propuestas" },
+  { label: "Equipo", href: "/equipo" },
+  { label: "Sobre mí", href: "/sobre-mi" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 ---
 
@@ -37,15 +46,15 @@ const navLinks = [
 
     <nav class="nav-desktop" aria-label="Navegación principal">
       {navLinks.map((link) => (
-        <a href={link.href}>{link.label}</a>
+        <a
+          href={link.href}
+          aria-current={isActive(link.href) ? "page" : undefined}
+          class={isActive(link.href) ? "active" : ""}
+        >{link.label}</a>
       ))}
     </nav>
 
     <div class="header-actions">
-      <div class="list-badge" title={`Lista N.° ${numeroLista}`}>
-        <span class="list-badge-number">{numeroLista}</span>
-        <span class="list-badge-label">Lista</span>
-      </div>
 
       <a href={ctaHref} class="cta">{ctaTexto}</a>
 
@@ -56,16 +65,20 @@ const navLinks = [
         aria-controls="nav-mobile"
         aria-expanded="false"
       >
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="sr-only">Menú</span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </button>
     </div>
   </div>
 
   <nav class="nav-mobile" id="nav-mobile" aria-label="Navegación móvil" data-open="false">
     {navLinks.map((link) => (
-      <a href={link.href}>{link.label}</a>
+      <a
+        href={link.href}
+        aria-current={isActive(link.href) ? "page" : undefined}
+      >{link.label}</a>
     ))}
     <a href={ctaHref} class="cta cta-mobile">{ctaTexto}</a>
   </nav>
@@ -140,12 +153,15 @@ const navLinks = [
     text-decoration: none;
     padding: 0.4rem 0.1rem;
     border-bottom: 2px solid transparent;
-    transition: border-color 0.15s ease, opacity 0.15s ease;
+    transition: border-color 0.15s ease, opacity 0.15s ease, color 0.15s ease;
   }
 
   .nav-desktop a:hover,
-  .nav-desktop a:focus-visible {
+  .nav-desktop a:focus-visible,
+  .nav-desktop a.active,
+  .nav-desktop a[aria-current="page"] {
     border-bottom-color: var(--gold);
+    color: var(--gold);
   }
 
   .header-actions {
@@ -292,12 +308,24 @@ const navLinks = [
   const toggle = document.getElementById("menu-toggle");
   const mobileNav = document.getElementById("nav-mobile");
 
+  // Abrir / cerrar el menú mobile
   toggle?.addEventListener("click", () => {
     const isOpen = mobileNav?.dataset.open === "true";
     mobileNav?.setAttribute("data-open", String(!isOpen));
     toggle.setAttribute("aria-expanded", String(!isOpen));
+    toggle.setAttribute("aria-label", !isOpen ? "Cerrar menú" : "Abrir menú");
   });
 
+  // Cerrar menú mobile al hacer click en cualquier link (H1 Nielsen)
+  mobileNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileNav.setAttribute("data-open", "false");
+      toggle?.setAttribute("aria-expanded", "false");
+      toggle?.setAttribute("aria-label", "Abrir menú");
+    });
+  });
+
+  // Sombra al hacer scroll
   const onScroll = () => {
     header?.setAttribute("data-scrolled", window.scrollY > 8 ? "true" : "false");
   };

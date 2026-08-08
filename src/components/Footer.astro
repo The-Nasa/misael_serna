@@ -1,4 +1,5 @@
-﻿---
+---
+import { candidato } from '../data/candidato';
 const year = new Date().getFullYear();
 ---
 
@@ -8,36 +9,40 @@ const year = new Date().getFullYear();
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
 
       <div class="text-center md:text-left">
-        <p class="font-bold text-white text-lg">Misael Serna Villar</p>
-        <p class="text-sm text-gray-400 mt-1">
-          Candidato a Alcalde por Aucayacu 2027-2030
-        </p>
+        <p class="font-bold text-white text-lg">{candidato.nombre}</p>
+        <p class="text-sm text-gray-300 mt-1">{candidato.cargoCompleto}</p>
       </div>
 
-      <nav class="flex flex-wrap gap-6 text-sm justify-center">
-        <a href="#quien-es" class="hover:text-brand-400 transition-colors">Inicio</a>
-        <a href="#participacion" class="hover:text-brand-400 transition-colors">Propuestas</a>
-        <a href="#contacto" class="hover:text-brand-400 transition-colors">Contacto</a>
+      <nav aria-label="Enlaces del pie de página" class="flex flex-wrap gap-6 text-sm justify-center">
+        <a href="/#inicio" class="hover:text-brand-400 transition-colors">Inicio</a>
+        <a href="/propuestas" class="hover:text-brand-400 transition-colors">Propuestas</a>
+        <a href="/#contacto" class="hover:text-brand-400 transition-colors">Contacto</a>
       </nav>
 
       <div class="flex gap-4">
         <a
-          href="https://web.facebook.com/misael.sernavillar/?_rdc=1&_rdr"
+          href={candidato.redes.facebook}
           target="_blank"
           rel="noopener noreferrer"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-brand-600 transition-colors duration-200"
-          aria-label="Facebook"
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-[#1877F2] transition-colors duration-200"
+          aria-label="Visitar Facebook de Misael Serna"
         >
-          f
+          <!-- Facebook SVG -->
+          <svg width="18" height="18" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true">
+            <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+          </svg>
         </a>
         <a
-          href="http://tiktok.com/@misael.serna"
+          href={candidato.redes.tiktok}
           target="_blank"
           rel="noopener noreferrer"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-brand-600 transition-colors duration-200"
-          aria-label="TikTok"
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-black transition-colors duration-200"
+          aria-label="Visitar TikTok de Misael Serna"
         >
-          t
+          <!-- TikTok SVG -->
+          <svg width="18" height="18" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+            <path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V.5h88a121.18 121.18 0 0 0 1.86 22.20A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14z"/>
+          </svg>
         </a>
       </div>
 

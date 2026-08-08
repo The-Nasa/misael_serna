@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import QuienEs from '../components/QuienEs.astro';
+import Logros from '../components/Logros.astro';
+import ParticipacionPolitica from '../components/ParticipacionPolitica.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Sobre Mí - Misael Serna Villar">
+  <Header />
+  
+  <main id="main-content" class="w-full bg-gradient-to-b from-brand-50 to-transparent min-h-screen">
+    <div class="max-w-4xl mx-auto px-6 text-center mb-8 pt-10">
+      <h1 class="text-5xl font-extrabold text-gray-900 mb-4 uppercase">Sobre Mí</h1>
+      <p class="text-xl text-gray-600 font-medium">Mi vocación, trayectoria y experiencia al servicio del desarrollo de nuestra comunidad.</p>
+    </div>
+    <QuienEs />
+    <Logros />
+    <ParticipacionPolitica />
+  </main>
+
+  <Footer />
+</Layout>

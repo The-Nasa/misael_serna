@@ -2,50 +2,27 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import PropuestasList from '../components/PropuestasList.astro';
-import EquipoGrid from '../components/EquipoGrid.astro';
 import QuienEs from '../components/QuienEs.astro';
 import Logros from '../components/Logros.astro';
 import ParticipacionPolitica from '../components/ParticipacionPolitica.astro';
+import PropuestasList from '../components/PropuestasList.astro';
 import CTA from '../components/CTA.astro';
 import ContactoForm from '../components/ContactoForm.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Misael Serna Villar - Alcalde">
+<Layout title="Misael Serna Villar — Candidato a Alcalde por Aucayacu 2027-2030">
   <Header />
-  
-  <div id="inicio">
-    <Hero />
-  </div>
-  
-  <div id="propuestas" class="w-full pt-20 bg-gradient-to-b from-brand-50 to-transparent">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-extrabold text-gray-900 mb-4 uppercase">Nuestros Compromisos</h2>
-      <p class="text-lg text-gray-600 font-medium">Soluciones reales, medibles y enfocadas en mejorar la calidad de vida de todos los aucayaquinos.</p>
-    </div>
-    <PropuestasList />
-  </div>
 
-  <div id="equipo" class="w-full pt-20">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-extrabold text-gray-900 mb-4 uppercase">Nuestro Equipo</h2>
-      <p class="text-lg text-gray-600 font-medium">Un grupo de profesionales y ciudadanos comprometidos con el futuro de Aucayacu.</p>
+  <main id="main-content">
+    <div id="inicio">
+      <Hero />
     </div>
-    <EquipoGrid />
-  </div>
 
-  <div id="sobre-mi" class="w-full pt-20 bg-gradient-to-b from-brand-50 to-transparent">
-    <div class="max-w-4xl mx-auto px-6 text-center mb-8">
-      <h2 class="text-4xl font-extrabold text-gray-900 mb-4 uppercase">Sobre Mí</h2>
-      <p class="text-lg text-gray-600 font-medium">Mi vocación, trayectoria y experiencia al servicio del desarrollo de nuestra comunidad.</p>
+    <div id="contacto">
+      <CTA />
     </div>
-    <QuienEs />
-    <Logros />
-    <ParticipacionPolitica />
-  </div>
-
-  <CTA />
+  </main>
 
   <Footer />
 </Layout>
